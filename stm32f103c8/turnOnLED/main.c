@@ -1,0 +1,16 @@
+#include "stm32f10x.h" 
+
+int main(void) {
+
+	RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+	
+	GPIOC->CRH &= ~(GPIO_CRH_MODE13);
+	GPIOC->CRH |= GPIO_CRH_MODE13_1;
+	GPIOC->CRH |= GPIO_CRH_MODE13_0;
+	
+	GPIOC->CRH &= ~(GPIO_CRH_CNF13);
+	
+	//GPIOC->ODR ^= GPIO_ODR_ODR13;
+	
+	while(1);
+}
